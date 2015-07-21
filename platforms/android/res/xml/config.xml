@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.tabulado" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="BarcodeScanner">
+        <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <name>tabulado</name>
+    <description>App for tabulado.com</description>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">Daniel Martin</author>
+    <content src="index.html" />
+    <access origin="zerfl.com" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+    <vs:plugin name="org.apache.cordova.statusbar" version="0.1.10" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" />
+    <vs:plugin name="com.ionic.keyboard" version="1.0.5" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" />
+    <vs:plugin name="phonegap-plugin-barcodescanner" version="3.1.2" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" />
+    <vs:plugin name="org.apache.cordova.camera" version="0.3.6" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" />
+    <vs:plugin name="org.apache.cordova.console" version="0.2.13" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" />
+    <preference name="android-targetSdkVersion" value="16" />
+</widget>
