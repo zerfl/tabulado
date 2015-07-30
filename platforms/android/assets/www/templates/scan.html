@@ -2,13 +2,59 @@
    
         <ion-tabs class="tabs-background-calm tabs-color-light">
 
+            <ion-tab title="Add" icon-on="ion-android-add" icon-off="ion-android-add">
+                <ion-pane>
+                    <ion-content padding="true">
+                        <h3>Add Game</h3>
+
+                        <!-- <form ng-submit="newScan()">
+                    <div class="list">
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">EAN</span>
+                            <input type="text" ng-model="item.ean">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Format</span>
+                            <input type="text" ng-model="item.format">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Date</span>
+                            <input type="text" ng-model="item.date">
+                        </label>
+
+                    </div>
+                </form> -->
+
+                        <div class="row">
+                            <div class="col">
+                                <button class="button button-block button-calm" ng-click="scan()">Scan</button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="button button-calm button-block" disabled>Hochladen</button>
+                            </div>
+                        </div>
+
+                        <h3>Detail</h3>
+                        <div class="card">
+                            <div class="item item-text-wrap" ng-repeat="product in products">
+                                <h2 ng-repeat="attribute in product.ItemAttributes">{{attribute.Title[0]}}</h2>
+                                <h3 ng-repeat="asin in product.ASIN">{{asin}}</h3>
+                                <div ng-repeat="image in product.LargeImage">
+                                    <img class="img-responsive" src="{{image.URL[0]}}" />
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </ion-content>
+                </ion-pane>
+            </ion-tab>
+
             <ion-tab title="Overview" icon-on="ion-android-time" icon-off="ion-android-time">
                 <ion-pane>
                     <ion-content padding="true">
-                        <ion-refresher pulling-text="Tu es..."
-                                       on-refresh="doRefresh()">
-                        </ion-refresher>
-                        <h3>Hochgeladene Spiele</h3>
+                        <h3>History</h3>
                         <div class="card">
                             <div class="item item-text-wrap" ng-repeat="item in items | reverse">
                                 <h2>{{item.ean}}</h2>
@@ -20,34 +66,7 @@
                 </ion-pane>
             </ion-tab>
 
-            <ion-tab title="Add" icon-on="ion-android-add" icon-off="ion-android-add">
-                <ion-pane>
-                    <ion-content padding="true">
-                        <h3>Add Game</h3>
 
-                        <form ng-submit="newScan()">
-                            <div class="list">
-                                <label class="item item-input item-stacked-label">
-                                    <span class="input-label">EAN</span>
-                                    <input type="text" ng-model="item.ean">
-                                </label>
-                                <label class="item item-input item-stacked-label">
-                                    <span class="input-label">Format</span>
-                                    <input type="text" ng-model="item.format">
-                                </label>
-                                <label class="item item-input item-stacked-label">
-                                    <span class="input-label">Date</span>
-                                    <input type="text" ng-model="item.date">
-                                </label>
-                                <button class="button button-block button-calm" ng-click="scan()">
-                                    Scan
-                                </button>
-                                <button type="submit" class="button button-calm button-block">Hochladen</button>
-                            </div>
-                        </form>
-                    </ion-content>
-                </ion-pane>
-            </ion-tab>
 
 
         </ion-tabs>

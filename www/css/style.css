@@ -1,1 +1,4 @@
-/* Empty. Add your own CSS if you like */
+.img-responsive {
+    height: auto;
+    max-width: 100%;
+}

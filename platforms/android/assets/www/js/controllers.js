@@ -42,44 +42,28 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 
-.controller('ScanCtrl', function ($scope, Scan) {
-    $scope.items = Scan.query();
-/*
-    $scope.addScan = function () { //create a new movie. Issues a POST to /api/movies
-        $scope.scan.$save(function () {
-            $scope.items = Scan.query();
+.controller('ScanCtrl', function ($scope, Api) {
+    //$scope.items = Scan.query();
+
+    $scope.getProduct = function (ean) {
+        $scope.products = Api.Product.query({ ean: ean }, function () {
+            console.log($scope.product);
         });
-    };
-*/
-    $scope.doRefresh = function () {
-        $scope.items = Scan.query(function () {
-            $scope.$broadcast('scroll.refreshComplete');
-        });
+        $scope.$apply();
     };
 
     $scope.scan = function () {
         cordova.plugins.barcodeScanner.scan(
            function (result) {
                var date = new Date().toISOString();
-               $scope.item = {
-                   ean: result.text,
-                   format: result.format,
-                   date: date
-               };
-               $scope.$apply();
-
+               $scope.ean = result.text;
+               $scope.getProduct(result.text);
                $scope.newScan = function () {
-                   var post = new Scan($scope.item);
-                   post.$save(function () {
+                   /*post.$save(function () {
                        $scope.items = Scan.query();
-                   });
+                   });*/
                }
 
-
-
-               /*$scope.lastmessage = $scope.addScan();
-               //console.log($scope.lastmessage);
-               //$scope.items = Scan.query();*/
            },
            function (error) {
                alert("Scanning failed: " + error);
@@ -88,3 +72,4 @@ angular.module('starter.controllers', ['starter.services'])
     };
 
 })
+
